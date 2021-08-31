@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Input } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
 import './Chat.css';
 
 const initialMessage = [
   'Olá, seja bem vindo', 
-  'Olá, seja bem vindo2', 
-  'Olá, seja bem vind3o', 
-  'Olá, seja bem 4vindo',
+  'bla bla bla', 
+  'Sua mensagem está sendo processada', 
+  'Obrigado pelo contato!',
 ]
 
 export default function Chat() {
@@ -18,13 +18,13 @@ export default function Chat() {
 
   function addMensagem(e) {
     e.preventDefault();
-
-    if (!!mensagem) {
-      setListaMensagem([...listaMensagem, mensagem]);
-      setMensagem("");
-    }
-
+    setListaMensagem([...listaMensagem, mensagem]);
+    setMensagem("");
   }
+
+  useEffect(() => {
+
+  }, [mensagem]);
 
   return (
     <div>
@@ -32,7 +32,7 @@ export default function Chat() {
       <p>Bem vindo ao atendimento on-line, digite sua mensagem!</p>
 
       <p><b>Atendente diz</b>: 
-        {msg.map(msgAtendente => (
+        {msg.map((msgAtendente, index) => (
           <p key={msgAtendente.index}>{msgAtendente}</p>
         ))}
       </p>
