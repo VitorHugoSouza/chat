@@ -1,5 +1,5 @@
 
-.camposRodape {
-  margin-top: '100px';
-  padding-top: '100px';
+.form {
+  display: flex;
+  align-items: baseline;
 }
